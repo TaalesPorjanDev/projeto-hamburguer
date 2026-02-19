@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Message :msg="msg" v-show="msg"/>
+    <Message :msg="msg" v-show="msg" />
     <div>
       <form id="burguer-form" @submit.prevent="createBurguer">
         <div class="input-container">
@@ -80,38 +80,37 @@ async function getIngredientes() {
 }
 
 async function createBurguer() {
-    const data = {
-       nome: nome.value,
-       carne: carne.value, 
-       pao: pao.value,
-       opcionais: Array.from(opcionais.value),
-       status: "Solicitado"
-    }
+  const data = {
+    nome: nome.value,
+    carne: carne.value,
+    pao: pao.value,
+    opcionais: Array.from(opcionais.value),
+    status: 'Solicitado',
+  };
 
-   const dataJson = JSON.stringify(data)
-  
-   const req = await fetch('http://localhost:3000/burgers', {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: dataJson
-   });
+  const dataJson = JSON.stringify(data);
 
-   const res = await req.json();
-   
-   // colocar uma mensagem de sistema
-   msg.value = `Pedido N° ${res.id} realizado com sucesso`;
-   
-   // limpar mensagem
-   setTimeout(() => {
-     msg.value = "";
-   }, 3000)
-   // limpar os campos
+  const req = await fetch('http://localhost:3000/burgers', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: dataJson,
+  });
 
-   nome.value = "";
-   carne.value = "";
-   pao.value = "";
-   opcionais.value = "";
-   
+  const res = await req.json();
+
+  // colocar uma mensagem de sistema
+  msg.value = `Pedido N° ${res.id} realizado com sucesso`;
+
+  // limpar mensagem
+  setTimeout(() => {
+    msg.value = '';
+  }, 3000);
+  // limpar os campos
+
+  nome.value = '';
+  carne.value = '';
+  pao.value = '';
+  opcionais.value = [];
 }
 
 onMounted(() => {

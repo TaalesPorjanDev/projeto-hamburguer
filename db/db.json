@@ -77,18 +77,5 @@
       "tipo": "Finalizado"
     }
   ],
-  "burgers": [
-    {
-      "status": "Em produção",
-      "id": "8a21"
-    },
-    {
-      "status": "Em produção",
-      "id": "b377"
-    },
-    {
-      "status": "Em produção",
-      "id": "9cd3"
-    }
-  ]
+  "burgers": []
 }

@@ -1,5 +1,6 @@
 <template>
   <div id="burguer-table">
+    <MensagemRemovida :msg="msg" v-show="msg" />
     <div>
       <div id="burguer-table-heading">
         <div class="order-id">#:</div>
@@ -49,11 +50,13 @@
 </template>
 
 <script setup>
+import MensagemRemovida from './MensagemRemovida.vue';
 import { ref, onMounted } from 'vue';
 
 const burgers = ref(null);
 const burger_id = ref(null);
 const status = ref(null);
+const msg = ref(null)
 
 async function getPedidos() {
   const req = await fetch('http://localhost:3000/burgers');
@@ -79,7 +82,15 @@ async function deleteBurger(id) {
 
   const res = await req.json();
 
-  // msg de deletar pedido
+  // colocar uma mensagem de sistema
+  msg.value = `Pedido removido com sucesso!`;
+
+  // limpar mensagem
+  setTimeout(() => {
+    msg.value = '';
+  }, 3000);
+  
+  // limpar os campos
 
   getPedidos();
 }
@@ -97,7 +108,17 @@ async function updateBurger(event, id) {
 
   const res = await req.json();
 
-  console.log(res);
+    // colocar uma mensagem de sistema
+  msg.value = `O Pedido N° ${res.id} foi atualizado para ${res.status}!`;
+
+  // limpar mensagem
+  setTimeout(() => {
+    msg.value = '';
+  }, 3000);
+  // limpar os campos
+  console.log(res)
+
+
 }
 
 onMounted(() => {
