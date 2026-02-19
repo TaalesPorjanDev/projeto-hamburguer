@@ -24,11 +24,24 @@
           </ul>
         </div>
         <div>
-          <select name="status" class="status">
+          <select
+            name="status"
+            class="status"
+            @change="updateBurger($event, burger.id)"
+          >
             <option value="">Selecione</option>
-            <option v-for="s in status" :key="s.id" value="s.tipo" :selected="burger.status == s.tipo">{{ s.tipo }}</option>
+            <option
+              v-for="s in status"
+              :key="s.id"
+              :value="s.tipo"
+              :selected="burger.status == s.tipo"
+            >
+              {{ s.tipo }}
+            </option>
           </select>
-          <button class="delete-btn">Cancelar</button>
+          <button class="delete-btn" @click="deleteBurger(burger.id)">
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
@@ -41,8 +54,6 @@ import { ref, onMounted } from 'vue';
 const burgers = ref(null);
 const burger_id = ref(null);
 const status = ref(null);
-
-
 
 async function getPedidos() {
   const req = await fetch('http://localhost:3000/burgers');
@@ -59,10 +70,35 @@ async function getStatus() {
   const data = await req.json();
 
   status.value = data;
-
-  c
 }
 
+async function deleteBurger(id) {
+  const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+    method: 'DELETE',
+  });
+
+  const res = await req.json();
+
+  // msg de deletar pedido
+
+  getPedidos();
+}
+
+async function updateBurger(event, id) {
+  const option = event.target.value;
+
+  const dataJson = JSON.stringify({ status: option });
+
+  const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: dataJson,
+  });
+
+  const res = await req.json();
+
+  console.log(res);
+}
 
 onMounted(() => {
   getPedidos();

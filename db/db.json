@@ -79,94 +79,16 @@
   ],
   "burgers": [
     {
-      "id": "0519",
-      "nome": "Maria",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Pepino",
-        "Tomate"
-      ],
-      "status": "Solicitado"
+      "status": "Em produção",
+      "id": "8a21"
     },
     {
-      "id": "37e4",
-      "nome": "Zeca",
-      "carne": "Maminha",
-      "pao": "Parmesão e Orégano",
-      "opcionais": [
-        "Salame",
-        "Cebola roxa"
-      ],
-      "status": "Solicitado"
+      "status": "Em produção",
+      "id": "b377"
     },
     {
-      "id": "2086",
-      "nome": "Mario",
-      "carne": "Alcatra",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Cheddar",
-        "Tomate"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "8c3d",
-      "nome": "TALES FERNANDO PORJAN",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Cheddar",
-        "Tomate"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "9115",
-      "nome": "Maria das Neves",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon",
-        "Salame"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "0089",
-      "nome": "Maria das Neves",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon",
-        "Salame",
-        "Cebola roxa"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "e508",
-      "nome": "Maria das Dores",
-      "carne": "Maminha",
-      "pao": "Integral",
-      "opcionais": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "a019",
-      "nome": "Paulo Matias",
-      "carne": "Alcatra",
-      "pao": "Parmesão e Orégano",
-      "opcionais": [
-        "Cheddar",
-        "Tomate",
-        "Pepino"
-      ],
-      "status": "Solicitado"
+      "status": "Em produção",
+      "id": "9cd3"
     }
   ]
 }
